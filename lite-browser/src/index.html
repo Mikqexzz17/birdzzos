@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lite Browser</title>
+    <style>
+        body { margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; font-family: sans-serif; }
+        #toolbar { display: flex; padding: 5px; background: #f0f0f0; border-bottom: 1px solid #ccc; align-items: center;}
+        #toolbar button, #toolbar select { margin-right: 5px; cursor: pointer; padding: 4px; }
+        #url-input { flex-grow: 1; padding: 5px; margin-right: 5px;}
+        #webview-container { flex-grow: 1; position: relative; }
+    </style>
+</head>
+<body>
+    <div id="toolbar">
+        <button id="back-btn">Back</button>
+        <button id="forward-btn">Forward</button>
+        <button id="refresh-btn">Refresh</button>
+        <input type="text" id="url-input" placeholder="Enter URL here (e.g. https://google.com)">
+        <select id="search-engine">
+            <option value="google">Google</option>
+            <option value="duckduckgo">DuckDuckGo</option>
+        </select>
+        <button id="go-btn">Go</button>
+    </div>
+    <div id="webview-container"></div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
