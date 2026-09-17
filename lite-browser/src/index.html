@@ -34,6 +34,10 @@
             border-bottom: 1px solid #f8f9fa;
             font-weight: bold;
         }
+        .tab.sleeping {
+            opacity: 0.6;
+            font-style: italic;
+        }
         .tab-title {
             white-space: nowrap;
             overflow: hidden;
@@ -74,7 +78,7 @@
             background: transparent;
             border: 1px solid transparent;
             border-radius: 4px;
-            padding: 4px 8px;
+            padding: 4px 6px;
             cursor: pointer;
             margin-right: 2px;
             font-size: 13px;
@@ -139,7 +143,7 @@
             height: 2px;
             background: transparent;
             position: absolute;
-            top: 67px; /* Adjusted based on new UI height */
+            top: 67px;
             z-index: 9999;
         }
 
@@ -151,13 +155,13 @@
             display: none;
         }
 
-        #webview-container { flex-grow: 1; position: relative; }
+        #webview-container { flex-grow: 1; position: relative; background: #fff; }
     </style>
 </head>
 <body>
     <div id="tabs-bar">
         <div id="tabs-container" style="display:flex;"></div>
-        <button id="new-tab-btn" title="Nowa karta">+</button>
+        <button id="new-tab-btn" title="Nowa karta (Ctrl+T)">+</button>
     </div>
 
     <div id="toolbar">
@@ -167,9 +171,10 @@
 
         <input type="text" id="url-input" placeholder="Wpisz adres (np. google.com) lub wyszukaj...">
 
-        <!-- Nowe przyciski akcji -->
         <button class="btn" id="add-bookmark-btn" title="Dodaj zakładkę">⭐</button>
         <button class="btn" id="reader-mode-btn" title="Tryb czytnika (Uprość tekst)">📖</button>
+        <button class="btn" id="dark-mode-btn" title="Wymuś tryb ciemny">🌙</button>
+        <button class="btn" id="sleep-tabs-btn" title="Uśpij karty (Zwolnij RAM)">💤</button>
 
         <select id="search-engine" title="Wybierz wyszukiwarkę">
             <option value="google">Google</option>
@@ -179,9 +184,7 @@
         <button class="btn" id="go-btn" title="Go">Go</button>
     </div>
 
-    <div id="bookmarks-bar">
-        <!-- Zakładki wylądują tutaj -->
-    </div>
+    <div id="bookmarks-bar"></div>
 
     <div id="progress-bar-container"><div id="progress-bar"></div></div>
 
